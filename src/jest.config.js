@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     testRegex: 'app/__test__/.*.spec.js$',
 
