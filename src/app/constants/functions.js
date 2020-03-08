@@ -21,3 +21,23 @@ const poke_type = [
 ];
 
 export const getIconType = valueType => { return `${poke_type.find(index => index.nombre == valueType)?.ruta}`; }
+
+const poke_colors = {
+    fire: '#f08030ad',
+    grass: '#DEFDE0',
+    electric: '#f8d03073',
+    water: '#DEF3FD',
+    ground: '#e0c068b0',
+    rock: '#d5d5d4',
+    fairy: '#e7a8b0a8',
+    poison: '#a040a063',
+    bug: '#a8b820ad',
+    dragon: '#97b3e6',
+    psychic: '#eaeda1',
+    flying: '#a890f075',
+    fighting: '#E6E0D4',
+    normal: '#a8a878ad'
+};
+
+export const getColorType = valueType => { return `${poke_colors[valueType]}`; }
+

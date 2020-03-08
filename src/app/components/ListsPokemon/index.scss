@@ -1,41 +1,59 @@
+@import "app/scss/_variables.scss";
+
 .grid-poke {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
   margin: 0 auto;
-  padding: 0;
-  letter-spacing: normal;
-  text-rendering: auto;
-  width: 100%;
-  word-spacing: normal;
+  max-width: 1200px;
 
   .item-poke {
-    background: #3bcc47;
-    border-radius: 3px;
-    color: #293f54;
-    display: inline-block;
-    height: 180px;
-    margin-left: 7px;
-    margin-right: 7px;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    width: 110px;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
 
-    div {
-      background-color: #ffffff !important;
-      margin: 0.25rem !important;
+    &:hover {
+      transform: translateY(-10px);
+      transition: transform 0.25s;
     }
+    .img-container {
+      background-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      text-align: center;
 
-    .name-poke {
-      color: #647687;
-      font-weight: 700;
-      font-size: 11px;
-      text-align: center !important;
-      text-transform: capitalize !important;
-    }
-
-    .type-poke {
       img {
-        margin: 0.25rem 0.25rem 0.25rem 0.25rem;
+        margin-top: 20px;
+        max-width: 90%;
+      }
+    }
+    .info {
+      margin-top: 20px;
+
+      span {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        font-size: 0.8em;
+        padding: 5px 10px;
+      }
+
+      h3 {
+        margin: 15px 0 7px;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+      }
+      img {
+        margin: 0.25rem;
       }
     }
   }
+}
+
+.load-more {
+  display: flex;
+  justify-content: center;
 }

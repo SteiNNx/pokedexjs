@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ListsPokemon from 'app/components/ListsPokemon';
 
 const App = _ => {
-    return <div className="card">
-        <div className="card-header text-center">
+    return <Fragment>
+        <h3 className="app-header">
             Pokedex
-        </div>
-        <div className="card-body">
+        </h3>
+        <div className="app-body">
             <ListsPokemon />
         </div>
-        <div className="card-footer">
+        <footer className="app-footer">
             SteiNNxLabs
-        </div>
-    </div>
+        </footer>
+    </Fragment>
 }
 
 export default App;

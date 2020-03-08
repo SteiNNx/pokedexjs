@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 
 import Loader from 'app/components/Loader';
 import axiosPokeApi from 'app/api/axiosPokeApi';
-import { getIconType } from 'app/constants/functions';
+import {
+    getIconType,
+    getColorType,
+} from 'app/constants/functions';
 
 
 class ItemPokemon extends Component {
@@ -37,21 +40,21 @@ class ItemPokemon extends Component {
         } = this.state;
 
         return <div key={`li-poke-item-${index}-${nombre}`}
-            className="item-poke">
-            <div>
+            className="item-poke" style={{ backgroundColor: getColorType(detalle_pokemon?.types[0]?.type?.name) }}>
+            <div className="img-container">
                 <Loader
                     loading={loading}
-                    zoom={2}
-                    marginTop={'5rem'}>
+                    zoom={1.2}>
                     <img
                         src={detalle_pokemon?.sprites.front_default}
                         alt={detalle_pokemon?.name} />
                 </Loader>
             </div>
-            <div className="name-poke">
-                {nombre}
-            </div>
-            <div className="type-poke">
+            <div className="info">
+                <span>
+                    #{`${detalle_pokemon ? detalle_pokemon?.id.toString().padStart(3, '0') : 'XXX'}`}
+                </span>
+                <h3>{nombre}</h3>
                 {
                     detalle_pokemon && detalle_pokemon?.types.map((tipo) => {
                         return <img
