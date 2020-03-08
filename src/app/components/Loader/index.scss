@@ -1,0 +1,211 @@
+//colours from Material Design style guide
+$green: #64dd17;
+$blue: #304ffe;
+$red: #d50000;
+$yellow: #ffd600;
+
+//container sizing
+$width: 54px;
+
+//circle sizing
+$radius: 23;
+$circ: $radius * 6.28318;
+
+//overall rotation speed
+$rotate-speed: 2s;
+
+.loader-app {
+  position: relative;
+  margin: 0 auto;
+  width: $width;
+  height: $width;
+
+  .spinner-simple {
+    position: relative;
+    height: $width;
+    width: $width;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: rotate $rotate-speed * 1/2 linear infinite, simple-color ($rotate-speed * 5/2) ease-in-out infinite;
+
+    @keyframes simple-color {
+      100%,
+      0%,
+      24% {
+        border-top-color: $red;
+      }
+      25%,
+      49% {
+        border-top-color: $blue;
+      }
+      50%,
+      74% {
+        border-top-color: $green;
+      }
+      75%,
+      99% {
+        border-top-color: $yellow;
+      }
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    position: relative;
+    height: $width;
+    width: $width;
+    animation: rotate $rotate-speed linear infinite;
+
+    .circle {
+      stroke-dasharray: 1, $circ;
+      stroke-dashoffset: 0;
+      fill: none;
+      stroke-linecap: round;
+      -moz-animation: stroke ($rotate-speed * (3/4)) ease-in-out infinite,
+        color ($rotate-speed * 3) ease-in-out infinite;
+      -webkit-animation: stroke ($rotate-speed * (3/4)) ease-in-out infinite,
+        color ($rotate-speed * 3) ease-in-out infinite;
+      -o-animation: stroke ($rotate-speed * (3/4)) ease-in-out infinite, color ($rotate-speed * 3) ease-in-out infinite;
+      animation: stroke ($rotate-speed * (3/4)) ease-in-out infinite, color ($rotate-speed * 3) ease-in-out infinite;
+
+      @-webkit-keyframes stroke {
+        0% {
+          stroke-dasharray: 1, $circ;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: $circ * 0.666, $circ;
+          stroke-dashoffset: $circ * 0.333;
+        }
+        100% {
+          stroke-dasharray: $circ * 0.6666, $circ;
+          stroke-dashoffset: -($circ - 1);
+        }
+      }
+      @keyframes stroke {
+        0% {
+          stroke-dasharray: 1, $circ;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: $circ * 0.666, $circ;
+          stroke-dashoffset: $circ * 0.333;
+        }
+        100% {
+          stroke-dasharray: $circ * 0.6666, $circ;
+          stroke-dashoffset: -($circ - 1);
+        }
+      }
+      @-moz-keyframes stroke {
+        0% {
+          stroke-dasharray: 1, $circ;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: $circ * 0.666, $circ;
+          stroke-dashoffset: $circ * 0.333;
+        }
+        100% {
+          stroke-dasharray: $circ * 0.6666, $circ;
+          stroke-dashoffset: -($circ - 1);
+        }
+      }
+      @-o-keyframes stroke {
+        0% {
+          stroke-dasharray: 1, $circ;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: $circ * 0.666, $circ;
+          stroke-dashoffset: $circ * 0.333;
+        }
+        100% {
+          stroke-dasharray: $circ * 0.6666, $circ;
+          stroke-dashoffset: -($circ - 1);
+        }
+      }
+
+      @keyframes color {
+        100%,
+        0%,
+        24% {
+          stroke: $red;
+        }
+        25%,
+        49% {
+          stroke: $blue;
+        }
+        50%,
+        74% {
+          stroke: $green;
+        }
+        75%,
+        99% {
+          stroke: $yellow;
+        }
+      }
+      @-webkit-keyframes color {
+        100%,
+        0%,
+        24% {
+          stroke: $red;
+        }
+        25%,
+        49% {
+          stroke: $blue;
+        }
+        50%,
+        74% {
+          stroke: $green;
+        }
+        75%,
+        99% {
+          stroke: $yellow;
+        }
+      }
+      @-o-keyframes color {
+        100%,
+        0%,
+        24% {
+          stroke: $red;
+        }
+        25%,
+        49% {
+          stroke: $blue;
+        }
+        50%,
+        74% {
+          stroke: $green;
+        }
+        75%,
+        99% {
+          stroke: $yellow;
+        }
+      }
+      @-moz-keyframes color {
+        100%,
+        0%,
+        24% {
+          stroke: $red;
+        }
+        25%,
+        49% {
+          stroke: $blue;
+        }
+        50%,
+        74% {
+          stroke: $green;
+        }
+        75%,
+        99% {
+          stroke: $yellow;
+        }
+      }
+    }
+  }
+}

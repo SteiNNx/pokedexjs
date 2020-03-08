@@ -1,0 +1,41 @@
+.grid-poke {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  letter-spacing: normal;
+  text-rendering: auto;
+  width: 100%;
+  word-spacing: normal;
+
+  .item-poke {
+    background: #3bcc47;
+    border-radius: 3px;
+    color: #293f54;
+    display: inline-block;
+    height: 180px;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    width: 110px;
+
+    div {
+      background-color: #ffffff !important;
+      margin: 0.25rem !important;
+    }
+
+    .name-poke {
+      color: #647687;
+      font-weight: 700;
+      font-size: 11px;
+      text-align: center !important;
+      text-transform: capitalize !important;
+    }
+
+    .type-poke {
+      img {
+        margin: 0.25rem 0.25rem 0.25rem 0.25rem;
+      }
+    }
+  }
+}
