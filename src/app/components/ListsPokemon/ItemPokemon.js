@@ -32,6 +32,7 @@ class ItemPokemon extends Component {
         const {
             index,
             nombre,
+            handleModal,
         } = this.props;
 
         const {
@@ -40,7 +41,8 @@ class ItemPokemon extends Component {
         } = this.state;
 
         return <div key={`li-poke-item-${index}-${nombre}`}
-            className="item-poke" style={{ backgroundColor: getColorType(detalle_pokemon?.types[0]?.type?.name) }}>
+            className="item-poke" style={{ backgroundColor: getColorType(detalle_pokemon?.types[0]?.type?.name) }}
+            onClick={handleModal(true, detalle_pokemon)}>
             <div className="img-container">
                 <Loader
                     loading={loading}

@@ -6,9 +6,8 @@ import {
 } from 'app/api/constants';
 import ButtonLoad from 'app/components/Loader/ButtonLoad';
 import ItemPokemon from 'app/components/ListsPokemon/ItemPokemon';
+import ModalDetail from 'app/components/Modal/ModalDetail';
 import Loader from 'app/components/Loader';
-
-
 
 import './index.scss';
 
@@ -17,6 +16,8 @@ class ListPokemon extends Component {
     state = {
         lista_pokemon: [],
         get_more_url: null,
+        selectPokemon: null,
+        isOpenModal: false,
         loading: true,
     }
 
@@ -38,6 +39,10 @@ class ListPokemon extends Component {
             })
     }
 
+    handleModal = (value, selectPokemon) => event => {
+        this.setState((_) => ({ isOpenModal: value, selectPokemon: selectPokemon }));
+    }
+
     handleLoadMore = url_more => event => {
         this.loadPokemons(url_more, true);
     }
@@ -47,6 +52,8 @@ class ListPokemon extends Component {
         const {
             lista_pokemon,
             get_more_url,
+            selectPokemon,
+            isOpenModal,
             loading,
         } = this.state;
 
@@ -63,7 +70,8 @@ class ListPokemon extends Component {
                                     index={index}
                                     key={`item-pokemon-${index}`}
                                     nombre={pokemon.name}
-                                    url_detalle={pokemon.url} />
+                                    url_detalle={pokemon.url}
+                                    handleModal={this.handleModal} />
                             })
                         }
 
@@ -78,6 +86,10 @@ class ListPokemon extends Component {
                             </ButtonLoad>
                         </div>
                     }
+                    <ModalDetail
+                        isOpen={isOpenModal}
+                        pokemon={selectPokemon}
+                        onClick={this.handleModal} />
                 </Fragment>
             </Loader>
         </Fragment>

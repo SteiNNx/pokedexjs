@@ -13,7 +13,7 @@ const LoaderButton = (props) => {
         <button
             id={id}
             name={id}
-            className={className ? `btn-button ${className} ` : 'btn-button'}
+            className={className ? `btn btn-button btn-primary ${className} ` : 'btn btn-button btn-primary'}
             onClick={onClick}
             disabled={loading || disabled}
             style={style} >
