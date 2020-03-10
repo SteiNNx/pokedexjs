@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "name": "steinnxpokedexjs",
+    "builds": [
+        {
+            "use": "@now/static-build",
+            "src": "src/package.json"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "src/index.html"
+        },
+        {
+            "src": "/public/(.*).js",
+            "dest": "src/$1.js"
+        },
+        {
+            "src": "/public/img/(.*).gif",
+            "dest": "src/img/$1.gif"
+        },
+        {
+            "src": "/public/(.*).ico",
+            "dest": "src/$1.ico"
+        }
+    ]
+}
