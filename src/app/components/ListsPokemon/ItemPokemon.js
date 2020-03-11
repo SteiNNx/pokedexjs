@@ -58,8 +58,9 @@ class ItemPokemon extends Component {
                 </span>
                 <h3>{nombre}</h3>
                 {
-                    detalle_pokemon && detalle_pokemon?.types.map((tipo) => {
+                    detalle_pokemon && detalle_pokemon?.types.map((tipo, key) => {
                         return <img
+                            key={`${detalle_pokemon?.name}-${tipo?.type?.name}-${key}`}
                             src={getIconType(tipo?.type?.name)}
                             alt={tipo?.type?.name} />
                     })

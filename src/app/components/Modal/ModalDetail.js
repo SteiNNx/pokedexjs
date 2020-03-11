@@ -4,8 +4,11 @@ import {
     Modal,
     ModalBody,
     ModalHeader,
-    ModalFooter,
 } from 'reactstrap';
+import {
+    getIconType,
+    getColorType,
+} from 'app/constants/functions';
 
 import './ModalDetail.scss'
 
@@ -13,6 +16,7 @@ const ModalDetail = ({ backdrop, isOpen, onClick, pokemon, size }) => {
     return <Modal
         isOpen={isOpen}
         backdrop={backdrop}
+        contentClassName="details-modal"
         size={size}
         toggle={onClick(false, null)}>
         <ModalHeader
@@ -21,17 +25,35 @@ const ModalDetail = ({ backdrop, isOpen, onClick, pokemon, size }) => {
             {pokemon?.name && `${pokemon?.name}`}
         </ModalHeader>
         <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div
+                className="row">
+                <div
+                    className="col-sm-4">
+                    <div>
+                        <img
+                            src={pokemon?.sprites.front_default}
+                            alt={pokemon?.name} />
+                        <span>
+                            #{`${pokemon ? pokemon?.id.toString().padStart(3, '0') : 'XXX'}`}
+                        </span>
+                        <h3>{pokemon?.name}</h3>
+                        <div>
+                            {
+                                pokemon?.types && pokemon?.types.map((tipo, key) => {
+                                    return <img
+                                        key={`modal-details-${pokemon?.name}-${tipo?.type?.name}-${key}`}
+                                        src={getIconType(tipo?.type?.name)}
+                                        alt={tipo?.type?.name} />
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="col-sm-8">
+                </div>
+            </div>
         </ModalBody>
-        <ModalFooter>
-            <button
-                id="btn-modal-detail-close"
-                name="btn-modal-detail-close"
-                className="btn btn-danger btn-sm"
-                onClick={onClick(false, null)}>
-                Cancel
-            </button>
-        </ModalFooter>
     </Modal>
 }
 
@@ -43,7 +65,7 @@ ModalDetail.propTypes = {
 };
 
 ModalDetail.defaultProps = {
-    size: 'ie',
+    size: 'lg',
     backdrop: 'static',
 };
 
