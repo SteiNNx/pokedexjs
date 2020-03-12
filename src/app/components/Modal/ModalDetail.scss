@@ -1,5 +1,7 @@
+@import "../../scss/variables.scss";
+
 .details-modal {
-  background: linear-gradient(to right, #d4d3dd, #efefbb);
+  background: linear-gradient(to right, $yellow-white-light, $yellow-light);
   border-bottom: 0px !important;
   margin: 0rem;
   text-align: center;
@@ -7,8 +9,41 @@
 .details-header {
   border-bottom: 0rem !important;
   h5 {
-    font-size: 1.17em !important;
+    font-size: 2.6rem !important;
     letter-spacing: 1px;
+    line-height: 1.5;
+    text-align: center;
     text-transform: capitalize;
+    width: 100%;
   }
+}
+
+.details-body-left {
+  background: $gray;
+  border-radius: 20px;
+  .info {
+    margin-top: 20px;
+
+    span {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      font-size: 0.8em;
+      padding: 5px 10px;
+    }
+
+    h3 {
+      font-size: 1.17em !important;
+      margin: 15px 0 7px;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+    }
+    img {
+      margin: 0.25rem;
+      padding-bottom: 10px;
+    }
+  }
+}
+.details-body-right {
+  background: $gray;
+  border-radius: 20px;
 }
