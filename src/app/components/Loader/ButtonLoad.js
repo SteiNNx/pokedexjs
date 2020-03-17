@@ -31,7 +31,6 @@ const LoaderButton = (props) => {
 };
 
 LoaderButton.propTypes = {
-    loading: PropTypes.bool.isRequired,
     children: PropTypes.oneOfType([
         PropTypes.element, PropTypes.string.isRequired
     ]).isRequired,

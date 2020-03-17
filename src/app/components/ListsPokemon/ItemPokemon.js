@@ -48,6 +48,7 @@ class ItemPokemon extends Component {
                     loading={loading}
                     zoom={1.2}>
                     <img
+                        loading="lazy"
                         src={detalle_pokemon?.sprites.front_default}
                         alt={detalle_pokemon?.name} />
                 </Loader>
@@ -60,6 +61,7 @@ class ItemPokemon extends Component {
                 {
                     detalle_pokemon && detalle_pokemon?.types.map((tipo, key) => {
                         return <img
+                            loading="lazy"
                             key={`${detalle_pokemon?.name}-${tipo?.type?.name}-${key}`}
                             src={getIconType(tipo?.type?.name)}
                             alt={tipo?.type?.name} />
